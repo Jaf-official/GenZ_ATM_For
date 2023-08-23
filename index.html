@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let balance = 10000;
+      let maxAttempts = 3;
+      let pinCode = "8080";
+      let isCardBlocked = false;
+
+      for (let attempts = 1; attempts <= maxAttempts; attempts++) {
+        let enteredPin = prompt(
+          "Welcome to the GenZ Bank!\n\n Please enter your PIN:"
+        );
+
+        if (enteredPin === pinCode) {
+          let userInput = prompt(
+            "Welcome to the GenZ Bank!\n\n" +
+              "Options:\n" +
+              "1. Check Balance\n" +
+              "2. Deposit\n" +
+              "3. Withdraw\n" +
+              "4. Transfer\n\n" +
+              "Please enter the number of your choice (Attempt " +
+              attempts +
+              " of " +
+              maxAttempts +
+              "):"
+          );
+
+          let choice = Number(userInput);
+
+          if (choice === 1) {
+            alert("Your balance is ₦" + balance);
+          } else if (choice === 2) {
+            // Deposit logic
+            // ...
+          } else if (choice === 3) {
+            // Withdrawal logic
+            // ...
+          } else if (choice === 4) {
+            // Transfer logic
+            // ...
+          } else {
+            alert("Invalid choice. Please select a valid option.");
+          }
+
+          break;
+        } else {
+          if (attempts < maxAttempts) {
+            alert(
+              "Incorrect PIN. You have " +
+                (maxAttempts - attempts) +
+                " attempts remaining."
+            );
+          } else {
+            alert(
+              "Maximum number of PIN attempts reached. Your card is now blocked."
+            );
+            isCardBlocked = true;
+          }
+        }
+      }
+
+      if (!isCardBlocked) {
+      }
+    </script>
+  </body>
+</html>
